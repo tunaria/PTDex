@@ -2374,6 +2374,7 @@ def lookup_weapon_types(name):
     else:
         return 10
 
+
 def get_stat_weights(weights, item, bane_body=None):
     """Helper to calculate and return stat weights."""
     value = 0

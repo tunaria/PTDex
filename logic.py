@@ -554,7 +554,7 @@ def get_era_items(kwargs):
 
     # Apply universal filters
     if aug_search:
-        if kwargs['aug_type'] == 'None':
+        if kwargs.get('aug_type') in (None, '', 'None'):
             filters.append(Item.augtype > 0)
         else:
             mask = 2**(int(kwargs['aug_type'])-1)
