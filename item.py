@@ -10,12 +10,12 @@ from logic import engine, Item, LootTable, LootTableEntries, LootDrop, LootDropE
 
 def get_click_items(click_category, click_type, **kwargs):
     # Get the base items, tradeskill items, and quest items that drop from the zones in the eras requested.
-    base_items, special_items, quest_items, tradeskill_items = get_era_items(kwargs)
-    if not base_items and not tradeskill_items and not quest_items and not special_items:
+    base_items, special_items, quest_items, tradeskill_items, vendor_items = get_era_items(kwargs)
+    if not base_items and not tradeskill_items and not quest_items and not special_items and not vendor_items:
         return [], False, False, False
 
     # Create the lookup table
-    item_ids, lookup_table = create_lookup_table(base_items, tradeskill_items, quest_items, special_items)
+    item_ids, lookup_table = create_lookup_table(base_items, tradeskill_items, quest_items, special_items, vendor_items)
 
     item_params = or_(*item_ids)
     filters = []
